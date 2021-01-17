@@ -22,6 +22,7 @@ namespace CafeApp
     {
         static public int CurrentIngridId = -1;
         static public int CurrentDishId = -1;
+        static public int CurrentMenuId = -1;
         public MainWindow()
         {
             InitializeComponent();
@@ -122,6 +123,44 @@ namespace CafeApp
             {
                 if (CurrentDishId == -1) throw new Exception("You must choose any Dish");
                 MessageBox.Show($"Calories in your dish: { DataBase.CaloriesDish(CurrentDishId.ToString())}!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void currentMenuLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            new ChooseWindow(this, 2).Show();
+        }
+
+        private void deleteMenu_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (CurrentMenuId == -1) throw new Exception("You must choose any Menu");
+                DataBase.RemoveMenu(CurrentMenuId.ToString());
+                MessageBox.Show("Removed!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void addMenu_Click(object sender, RoutedEventArgs e)
+        {
+            new Menu().Show();
+        }
+
+        private void GetMenuInfo_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (CurrentMenuId == -1) throw new Exception("You must choose any Menu");
+                var Flex = DataBase.GetInfo("menu", "id_menu", CurrentMenuId);
+                MessageBox.Show($"Info for {Flex[1]}:\nDietic:    {Flex[2]}\nVegan:    {Flex[3]}\nFull:   {Flex[4]}");
             }
             catch (Exception ex)
             {

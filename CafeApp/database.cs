@@ -42,6 +42,23 @@ namespace CafeApp
             return ((DataRowView)dt.DefaultView[0])[0].ToString();
         }
 
+        public static string AddMenu(string name, int dietic, int vegan, int full)
+        {
+            using SqlCommand command = new SqlCommand($"insert into menu (menu_name,is_dietic,is_vegan,is_full) values ('{name}',{dietic},{vegan},{full})",Connection);
+            command.ExecuteNonQuery();
+
+            SqlDataAdapter adapter = new SqlDataAdapter(new SqlCommand($"select id_menu from menu where menu_name = '{name}'", Connection));
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            return ((DataRowView)dt.DefaultView[0])[0].ToString();
+        }
+
+        public static void MenuToContents(string ContentID, string MenuID)
+        {
+            using SqlCommand command = new SqlCommand($"insert into contents_in_menu (id_content, id_menu) values ('{ContentID}', {MenuID})", Connection);
+            command.ExecuteNonQuery();
+        }
+
         public static void IngredientsToContents(string IngridientID, string DishID)
         {
             using SqlCommand command = new SqlCommand($"insert into ingredients_in_contents (id_ingredient, id_content) values ('{IngridientID}', {DishID})", Connection);
@@ -68,6 +85,15 @@ namespace CafeApp
             command.ExecuteNonQuery();
 
             command.CommandText = $"delete from Contents where  id_content = '{DishId}'";
+            command.ExecuteNonQuery();
+        }
+
+        public static void RemoveMenu(string MenuId)
+        {
+            using SqlCommand command = new SqlCommand($"delete from contents_in_menu where  id_menu = '{MenuId}'", Connection);
+            command.ExecuteNonQuery();
+
+            command.CommandText = $"delete from menu where  id_menu = '{MenuId}'";
             command.ExecuteNonQuery();
         }
 

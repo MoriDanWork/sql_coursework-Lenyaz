@@ -36,8 +36,13 @@ namespace CafeApp
                 {
                     case 1:
                         ContentDataGrid.ItemsSource = DataBase.FillDataGrid($"select * from Contents");
-                        ModeLabel.Content = "Select Ingridient from list:";
+                        ModeLabel.Content = "Select Contents from list:";
                         this.SelectButton.Click += new RoutedEventHandler(SelectDishButton_Click);
+                        break;
+                    case 2:
+                        ContentDataGrid.ItemsSource = DataBase.FillDataGrid($"select * from menu");
+                        ModeLabel.Content = "Select Ingridient from list:";
+                        this.SelectButton.Click += new RoutedEventHandler(SelectMenuButton_Click);
                         break;
                     case 3:
                         ContentDataGrid.ItemsSource = DataBase.FillDataGrid($"select * from ingredients");
@@ -62,6 +67,18 @@ namespace CafeApp
                 this.Close();
             }
             else { MessageBox.Show("Choose Dish"); }
+        }
+
+        private void SelectMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            if ((DataRowView)ContentDataGrid.SelectedItem != null)
+            {
+                MainWindow.CurrentMenuId = Convert.ToInt32(((DataRowView)ContentDataGrid.SelectedItem)[0]);
+                Mw.currentMenuLabel.Content = ((DataRowView)ContentDataGrid.SelectedItem)[1].ToString();
+                this.Close();
+            }
+            else { MessageBox.Show("Choose Menu"); }
         }
 
         private void SelectIngridientButton_Click(object sender, RoutedEventArgs e)
