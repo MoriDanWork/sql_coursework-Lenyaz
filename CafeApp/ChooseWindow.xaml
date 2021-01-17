@@ -1,0 +1,16 @@
+﻿<Window x:Class="CafeApp.ChooseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CafeApp"
+        mc:Ignorable="d"
+        Title="ChooseWindow" Height="300" Width="400" Background="#FF8595BA">
+    <Grid>
+        <Grid x:Name="SelectIngridientsGrid" Margin="10,10,7,8" Visibility="Visible">
+            <DataGrid x:Name="ContentDataGrid" Margin="0,25,0,10" IsReadOnly="True"/>
+            <Button x:Name="SelectButton" Content="Select" VerticalAlignment="Top" HorizontalAlignment="Right" Width="156"/>
+            <Label x:Name="ModeLabel" Content="{}{Mode}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,27 @@
+﻿<Window x:Class="CafeApp.Ingridients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CafeApp"
+        mc:Ignorable="d"
+        Title="AddDishWindow" Height="220" Width="302" Background="#FF8595BA">
+    <Grid Margin="0,0,0,0">
+        <Grid x:Name="AddIngridientsGrid" Margin="10,10,7,0" Visibility="Visible" Height="186" VerticalAlignment="Top">
+            <Button x:Name="AppendBtn" Content="Append" Height="22" Click="AppendBtn_Click" Margin="2,148,6,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="NameBox" Margin="83,0,6,0"  Text="" TextWrapping="NoWrap" VerticalAlignment="Top"/>
+            <Label Content="Name:" HorizontalAlignment="Left" Margin="0,-4,0,0" VerticalAlignment="Top"/>
+            <Label Content="Proteins:" HorizontalAlignment="Left" Margin="0,21,0,0" VerticalAlignment="Top"/>
+            <Label Content="Fats:" HorizontalAlignment="Left" Margin="0,46,0,0" VerticalAlignment="Top"/>
+            <Label Content="Carbohydr:" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top"/>
+            <Label Content="Calories:" HorizontalAlignment="Left" Margin="0,96,0,0" VerticalAlignment="Top" />
+            <Label Content="Price:" HorizontalAlignment="Left" Margin="0,121,0,0" VerticalAlignment="Top" />
+            <TextBox x:Name="ProteinsBox" Margin="83,25,6,0" Text="" TextWrapping="NoWrap" VerticalAlignment="Top"/>
+            <TextBox x:Name="FatsBox" Margin="83,50,6,0" Text="" TextWrapping="NoWrap" VerticalAlignment="Top"/>
+            <TextBox x:Name="CarbohydrBox" Margin="83,75,6,0" Text="" TextWrapping="NoWrap" VerticalAlignment="Top"/>
+            <TextBox x:Name="CaloriesBox" Margin="83,100,6,0" Text="" TextWrapping="NoWrap" VerticalAlignment="Top"/>
+            <TextBox x:Name="PriceBox" Margin="83,125,6,0" Text="" TextWrapping="NoWrap" VerticalAlignment="Top"/>
+        </Grid>
+
+    </Grid>
+</Window>
