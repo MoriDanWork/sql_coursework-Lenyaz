@@ -12,7 +12,9 @@ namespace CafeApp
     static class DataBase
     {
 
-        static readonly SqlConnection Connection = new SqlConnection("Data Source=DEMONTINO-LAPTO\\FLEXBD;Initial Catalog=coursework;Integrated Security=True;MultipleActiveResultSets=True"); //подключение к sql
+        //static readonly SqlConnection Connection = new SqlConnection("Data Source=DEMONTINO-LAPTO\\FLEXBD;Initial Catalog=coursework;Integrated Security=True;MultipleActiveResultSets=True"); //подключение к sql
+
+        static readonly SqlConnection Connection = new SqlConnection("Data Source=localhost;Initial Catalog=coursework;Integrated Security=True;MultipleActiveResultSets=True"); //подключение к sql
 
         public static void OpenConnection() { if (Connection.State == System.Data.ConnectionState.Closed) Connection.Open(); }
         public static void CloseConnection() { if (Connection.State == System.Data.ConnectionState.Open) Connection.Close(); }

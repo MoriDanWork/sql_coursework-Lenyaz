@@ -1,4 +1,5 @@
-﻿create database coursework;
+﻿drop database coursework;
+create database coursework;
 use coursework;
 
 drop table ingredients
@@ -35,6 +36,15 @@ FOREIGN KEY (id_content)  REFERENCES contents (id_content),
 FOREIGN KEY (id_ingredient)  REFERENCES ingredients (id_ingredient)
 )
 
+create table menu
+(
+id_menu int identity not null primary key,
+menu_name varchar(20),
+is_dietic bit,
+is_vegan bit,
+is_full bit,
+)
+
 create table contents_in_menu
 (
 id_content int not null ,
@@ -51,15 +61,6 @@ id_content int not null,
 FOREIGN KEY (id_content)  REFERENCES contents (id_content),
 FOREIGN KEY (id_ingredient)  REFERENCES ingredients (id_ingredient)
 )
-
-create table menu
-(
-id_menu int identity not null primary key,
-menu_name varchar(20),
-is_dietic bit,
-is_vegan bit,
-is_full bit,
-)
 ///////////////////////////////////////////////////
 
 insert into ingredients (ingredient_name, proteins, fats, carbohydr, calories, price) values ('Water', 0, 0, 0, 0, 100)
@@ -68,7 +69,7 @@ insert into ingredients (ingredient_name, proteins, fats, carbohydr, calories, p
 
 insert into contents (content_name, weight_info) values ('Papich', 100)
 
-select id_ingredient, ingredient_name,  from ingredients
+select id_ingredient, ingredient_name from ingredients
 
 select sum(price) from ingredients
 
@@ -83,4 +84,4 @@ insert into menu (menu_name,is_dietic,is_vegan,is_full) values (1,1,1,1)
 select * from menu
 select id_content, content_name from contents
 
-select * from ingredients where lower(ingredient_name) like '%e%'; --"ug" search
+select * from ingredients where lower(ingredient_name) like '%s%'; --"ug" search
