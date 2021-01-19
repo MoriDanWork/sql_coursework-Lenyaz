@@ -25,8 +25,8 @@
         <!-- will change as soon you choose menu -->
         <Button x:Name="addMenu" Content="Add menu..." HorizontalAlignment="Stretch" Margin="10,172,2,0" VerticalAlignment="Top" Height="19" Click="addMenu_Click"/>
         <Button x:Name="deleteMenu" Content="Delete menu..." HorizontalAlignment="Stretch" Margin="10,197,2,0" VerticalAlignment="Top" Height="19" Click="deleteMenu_Click"/>
-        <TextBox x:Name="searchBox" HorizontalAlignment="Stretch" Height="22" Margin="10,390,89,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="#7F000000" KeyUp="SearchBox_KeyUp"/>
-        <ComboBox x:Name="SwitchBox" Margin="156,390,3,0" VerticalAlignment="Top" Height="22" SelectedIndex="0">
+        <TextBox x:Name="searchBox" Height="22" Margin="10,390,122,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="#7F000000" KeyUp="SearchBox_KeyUp"/>
+        <ComboBox x:Name="SwitchBox" Margin="130,390,30,0" VerticalAlignment="Top" Height="22" SelectedIndex="0">
             <TextBlock>Ingredients</TextBlock>
             <TextBlock>Dishes</TextBlock>
         </ComboBox>
@@ -37,6 +37,7 @@
         <Button x:Name="RemoveIngridientButton" Content="Remove ingridient..." Margin="9,318,3,0" VerticalAlignment="Top" Height="20" Click="RemoveIngridientButton_Click"/>
         <Button x:Name="IngridientInfoButton" Content="Ingridient info..." HorizontalAlignment="Left" Margin="9,343,0,0" VerticalAlignment="Top" Width="235" Click="IngridientInfoButton_Click"/>
         <Button x:Name="GetMenuInfo" Content="Menu Info..." Margin="10,222,2,0" VerticalAlignment="Top" Height="19" Click="GetMenuInfo_Click"/>
+        <Button Content="?" HorizontalAlignment="Left" Margin="204,390,0,0" VerticalAlignment="Top" Width="22" Click="Button_Click"/>
 
 
     </Grid>
